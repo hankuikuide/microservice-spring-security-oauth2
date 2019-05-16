@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>microservice-spring-security-oauth2</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>authorization-server</module>
+        <module>client</module>
+        <module>resource-server</module>
+        <module>resource2-server</module>
+    </modules>
+
+    <properties>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch>
+        <gib.skipTestsForNotImpactedModules>true</gib.skipTestsForNotImpactedModules>
+        <gib.failOnMissingGitDir>false</gib.failOnMissingGitDir>
+        <gib.failOnError>false</gib.failOnError>
+        <gib.enabled>false</gib.enabled>
+
+        <junit.version>4.12</junit.version>
+        <org.hamcrest.version>1.3</org.hamcrest.version>
+        <mockito.version>2.21.0</mockito.version>
+
+        <!-- logging -->
+        <org.slf4j.version>1.7.21</org.slf4j.version>
+        <logback.version>1.1.7</logback.version>
+
+        <!-- plugins -->
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <java.version>1.8</java.version>
+        <log4j.version>1.2.17</log4j.version>
+        <moneta.version>1.1</moneta.version>
+        <esapi.version>2.1.0.1</esapi.version>
+        <jmh-core.version>1.19</jmh-core.version>
+        <jmh-generator.version>1.19</jmh-generator.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-cli.version>1.4</commons-cli.version>
+        <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <jstl-api.version>1.2</jstl-api.version>
+        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
+        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+        <jstl.version>1.2</jstl.version>
+        <jackson.version>2.9.8</jackson.version>
+        <commons-fileupload.version>1.3</commons-fileupload.version>
+        <junit-platform.version>1.2.0</junit-platform.version>
+        <junit-jupiter.version>5.2.0</junit-jupiter.version>
+        <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
+        <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
+        <custom-pmd.version>0.0.1</custom-pmd.version>
+        <gitflow-incremental-builder.version>3.4</gitflow-incremental-builder.version>
+        <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
+        <!-- <maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version> -->
+        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
+        <lombok.version>1.16.12</lombok.version>
+        <rest-assured.version>3.1.0</rest-assured.version>
+        <oauth.version>2.3.3.RELEASE</oauth.version>
+        <oauth-auto.version>2.1.1.RELEASE</oauth-auto.version>
+    </properties>
+
+    <dependencies>
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>${org.hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${org.hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${org.hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-logger-api</artifactId>
+            <version>${maven-surefire-plugin.version}</version>
+            <!-- to get around bug https://github.com/junit-team/junit5/issues/801 -->
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>1.0.10.RELEASE</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

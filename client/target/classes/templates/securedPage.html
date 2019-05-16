@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Spring Security SSO</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+<div class="container">
+	<div class="col-sm-12">
+		<h1>登录成功</h1>
+		Welcome, <span th:text="${#authentication.name}">Name</span>
+		<div>
+			Your authorities are <span th:text="${#authentication.authorities}">authorities</span>
+		</div>
+	</div>
+	<a class="btn btn-primary" href="hello">调用认证服务</a>
+	<a class="btn btn-primary" href="helloResource">调用微服务</a>
+	<a class="btn btn-primary" href="/logout">Logout</a>
+</div>
+</body>
+</html>
