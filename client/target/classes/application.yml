@@ -1,8 +1,19 @@
 server:
   port: 9001
-  session:
-    cookie:
-      name: CLIENT_UISESSION
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        name: JSESSIONID_MR_WEB
+
+cis-service-security:
+  oauth2:
+    client:
+      clientId: sampleClientId
+      clientSecret: secret
+      accessTokenUri: http://localhost:9002/oauth/token
+      scope: webclient
+
 security:
   basic:
     enabled: false
@@ -14,6 +25,7 @@ security:
       userAuthorizationUri: http://localhost:9002/oauth/authorize
     resource:
       userInfoUri: http://localhost:9002/user/me
+
 spring:
   thymeleaf:
     cache: false

@@ -1,4 +1,4 @@
-package com.crhms.security.authorizationserver;
+package com.crhms.security.authorizationserver.security;
 
 
 import org.springframework.stereotype.Component;

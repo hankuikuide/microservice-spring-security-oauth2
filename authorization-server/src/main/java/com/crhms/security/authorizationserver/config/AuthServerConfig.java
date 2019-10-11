@@ -1,6 +1,5 @@
 package com.crhms.security.authorizationserver.config;
 
-import com.crhms.security.authorizationserver.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -71,7 +70,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         final TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer(), accessTokenConverter()));
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter()));
         endpoints.tokenStore(tokenStore()).tokenEnhancer(tokenEnhancerChain).authenticationManager(authenticationManager);
     }
 
@@ -88,36 +87,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     @Bean
-    public TokenEnhancer tokenEnhancer() {
-        return new CustomTokenEnhancer();
-    }
-
-    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//    @Autowired
-//    private BCryptPasswordEncoder passwordEncoder;
-//
-//    @Override
-//    public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-//        oauthServer.tokenKeyAccess("permitAll()")
-//            .checkTokenAccess("isAuthenticated()");
-//    }
-//
-//    @Override
-//    public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
-//        clients.inMemory()
-//            .withClient("SampleClientId")
-//            .secret(passwordEncoder.encode("secret"))
-//            .authorizedGrantTypes("authorization_code")
-//            .scopes("user_info")
-//            //autoApprove=true这意味着用户不会被重定向到授权的页面，也不需要手动给请求授权。
-//            .autoApprove(true)
-//            .redirectUris("http://localhost:8082/ui/login","http://localhost:8083/ui2/login","http://localhost:8082/login","http://www.example.com/")
-//        // .accessTokenValiditySeconds(3600)
-//        ; // 1 hour
-//    }
-
 
 }
