@@ -1,0 +1,181 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft YaHei","HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    text-decoration: none;
+}
+
+body {
+    background: #0c679c;
+}
+/*登陆主体样式*/
+.login-form {
+    width: 800px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.login-error{
+	width:267px;
+	height:50px;
+	margin:0 auto;
+    display:none;
+}
+.login-error-inner{
+	margin-top:10px;
+	margin-left:40px;
+    color: red;
+    height:32px;
+    width:160px;
+    text-align:left;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #fff;
+    opacity: 0.8;
+    padding:0 10px;
+    font-size: 12px;
+    line-height: 32px;
+}
+.login-error-arrow{
+	width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #fff;
+    opacity: 0.8;
+    margin-left: 100px;
+}
+
+.login-form-title {
+    width: 100%;
+    height: 100px;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+}
+
+.login-form-content {
+    width: 267px;
+    margin: 0 auto;
+}
+
+.login-form-list {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+    color: #fff;
+    background-color: #7192ad;
+    border-radius: 5px;
+}
+
+    .login-form-list i {
+        color: #ccc;
+        display: block !important;
+        position: absolute !important;
+        z-index: 1;
+        margin: 10px 2px 4px 10px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+.login-text {
+    width: 224px;
+    background-color: #7192ad;
+    border: 0;
+    height: 25px;
+    outline: none;
+    margin-left: 30px;
+    padding: 4px 6px !important;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    vertical-align: top;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.login-but {
+    display: block;
+    width: 100%;
+    height: 36px;
+    border: 0;
+    outline: 0;
+    background: #ec733e;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+    .login-but:hover {
+        cursor: pointer;
+        background: #ee662a;
+    }
+/*记住用户名*/
+.login-remUser {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    .login-remUser input {
+        width: 15px;
+        height: 15px;
+        margin: 14px 0 0;
+        float: left;
+    }
+
+    .login-remUser span {
+        color: #a2a2a2;
+        margin-left: 5px;
+    }
+
+.login-info {
+    font-size: 12px;
+    text-align: right;
+    background: none;
+}
+/*修改密码样式*/
+.login-form-change-label {
+    display: inline-block;
+    width: 57px;
+    text-align: right;
+    font-size: 12px;
+    padding-right: 5px;
+}
+
+.login-form-change-input {
+    width: 190px;
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border-radius: 3px;
+}
+/*版权样式*/
+.login-copyright {
+    text-align: center;
+    color: #999;
+    padding: 10px 10px;
+    font-size: 12px;
+    background: #20262c;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99999999;
+}
+
+.layer {
+    background-color: rgba(246, 242, 242, 0.0);
+    display: none;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4750px;
+    z-index: 50000;
+    position: fixed;
+    _position: absolute;
+}

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/authorization-server/authorization-server.iml" filepath="$PROJECT_DIR$/authorization-server/authorization-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client2/client2.iml" filepath="$PROJECT_DIR$/client2/client2.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-spring-security-oauth2.iml" filepath="$PROJECT_DIR$/microservice-spring-security-oauth2.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource-server/resource-server.iml" filepath="$PROJECT_DIR$/resource-server/resource-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource2-server/resource2-server.iml" filepath="$PROJECT_DIR$/resource2-server/resource2-server.iml" />

@@ -1,0 +1,380 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    background: #fafafa;
+}
+
+.header {
+    height: 50px;
+    line-height: 50px;
+    background-color: #353d47;
+}
+
+    .header .brand {
+        display: inline-block;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 0;
+        font-size: 22px;
+        font-weight: 900;
+        width: 380px;
+        color: #f5f5f5;
+        font-family: "Microsoft YaHei","HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    }
+
+        .header .brand img {
+            margin-top: -2px;
+            margin-left: 0px;
+            width: 34px;
+            height: 34px;
+            vertical-align: middle;
+            border: 0;
+        }
+
+
+    .header .nav {
+        height: 50px;
+        line-height: 50px;
+        list-style: none;
+        display: block;
+        float: right;
+    }
+
+        .header .nav a {
+            text-decoration: none;
+        }
+
+        .header .nav .dropdown-toggle {
+            padding-right: 20px;
+            display: block;
+            line-height: 50px;
+            font-size: 12px;
+            float: none;
+            color: #999;
+        }
+
+            .header .nav .dropdown-toggle img {
+                border-radius: 500px;
+                float: left;
+                margin-top: 10px;
+            }
+
+            .header .nav .dropdown-toggle .username {
+                padding-left: 5px;
+                float: none;
+            }
+
+            .header .nav .dropdown-toggle .icon-angle-down {
+                font-size: 18px;
+                display: inline-block;
+                position: relative;
+                left: 3px;
+                top: 2px;
+                right: 0px;
+            }
+
+
+.list-container {
+    width: 740px;
+    margin: 120px auto 80px auto;
+}
+
+
+.icon1.icon_Enabled:hover,
+.icon1:link {
+    background: url(../image/icon-01.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon1:visited {
+    background: url(../image/icon-01-red.png) center center;
+    text-decoration: none;
+}
+
+.icon1:active {
+    background: url(../image/icon-01-red.png) center center;
+    text-decoration: none;
+}
+
+.icon1:hover {
+    background: url(../image/icon-01-red.png) center center;
+    text-decoration: none;
+}
+
+.icon2.icon_Enabled:hover,
+.icon2:link {
+    background: url(../image/icon-02.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon2:visited {
+    background: url(../image/icon-02-red.png) center center;
+    text-decoration: none;
+}
+
+.icon2:active {
+    background: url(../image/icon-02-red.png) center center;
+    text-decoration: none;
+}
+
+.icon2:hover {
+    background: url(../image/icon-02-red.png) center center;
+    text-decoration: none;
+}
+
+.icon3.icon_Enabled:hover,
+.icon3:link {
+    background: url(../image/icon-03.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon3:visited {
+    background: url(../image/icon-03-red.png) center center;
+    text-decoration: none;
+}
+
+.icon3:active {
+    background: url(../image/icon-03-red.png) center center;
+    text-decoration: none;
+}
+
+.icon3:hover {
+    background: url(../image/icon-03-red.png) center center;
+    text-decoration: none;
+}
+
+.icon4.icon_Enabled:hover,
+.icon4:link {
+    background: url(../image/icon-04.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon4:visited {
+    background: url(../image/icon-04-red.png) center center;
+    text-decoration: none;
+}
+
+.icon4:active {
+    background: url(../image/icon-04-red.png) center center;
+    text-decoration: none;
+}
+
+.icon4:hover {
+    background: url(../image/icon-04-red.png) center center;
+    text-decoration: none;
+}
+
+.icon5.icon_Enabled:hover,
+.icon5:link {
+    background: url(../image/icon-05.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon5:visited {
+    background: url(../image/icon-05-red.png) center center;
+    text-decoration: none;
+}
+
+.icon5:active {
+    background: url(../image/icon-05-red.png) center center;
+    text-decoration: none;
+}
+
+.icon5:hover {
+    background: url(../image/icon-05-red.png) center center;
+    text-decoration: none;
+}
+
+.icon6.icon_Enabled:hover,
+.icon6:link {
+    background: url(../image/icon-06.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon6:visited {
+    background: url(../image/icon-06-red.png) center center;
+    text-decoration: none;
+}
+
+.icon6:active {
+    background: url(../image/icon-06-red.png) center center;
+    text-decoration: none;
+}
+
+.icon6:hover {
+    background: url(../image/icon-06-red.png) center center;
+    text-decoration: none;
+}
+
+.icon7.icon_Enabled:hover,
+.icon7:link {
+    background: url(../image/icon-07.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon7:visited {
+    background: url(../image/icon-07-red.png) center center;
+    text-decoration: none;
+}
+
+.icon7:active {
+    background: url(../image/icon-07-red.png) center center;
+    text-decoration: none;
+}
+
+.icon7:hover {
+    background: url(../image/icon-07-red.png) center center;
+    text-decoration: none;
+}
+
+.icon8.icon_Enabled:hover,
+.icon8:link {
+    background: url(../image/icon-08.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon8:visited {
+    background: url(../image/icon-08-red.png) center center;
+    text-decoration: none;
+}
+
+.icon8:active {
+    background: url(../image/icon-08-red.png) center center;
+    text-decoration: none;
+}
+
+.icon8:hover {
+    background: url(../image/icon-08-red.png) center center;
+    text-decoration: none;
+}
+
+.icon9.icon_Enabled:hover,
+.icon9:link {
+    background: url(../image/icon-09.png) center center;
+    width: 143px;
+    height: 135px;
+    float: left;
+    text-decoration: none;
+}
+
+.icon9:visited {
+    background: url(../image/icon-09-red.png) center center;
+    text-decoration: none;
+}
+
+.icon9:active {
+    background: url(../image/icon-09-red.png) center center;
+    text-decoration: none;
+}
+
+.icon9:hover {
+    background: url(../image/icon-09-red.png) center center;
+    text-decoration: none;
+}
+
+
+.icon_Enabled {
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+    _opacity: 0.3;
+    cursor: default;
+}
+/*后来修改*/
+.label-after thead tr th {
+    background: #ddd;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+    background: #fff;
+}
+
+.table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
+    background: #eee;
+}
+
+.breadcrumb li a {
+    color: #333;
+}
+
+.modal-header {
+    background: #ddd;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    padding: 9px 5px 13px 15px;
+}
+
+.modal-footer {
+    background: #ddd;
+}
+
+.modal-body {
+    background: #eee;
+    padding: 0;
+}
+
+.form-horizontal {
+    background: #fff;
+    border-radius: 8px;
+    color: #333;
+    width: 95%;
+    margin: 15px auto;
+}
+
+    .form-horizontal .control-group {
+        width: 89%;
+        margin: 10px auto;
+    }
+
+    .form-horizontal .control-label {
+        width: 80px;
+        height: 100%;
+        line-height: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-horizontal .control {
+        margin-left: 80px;
+    }
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0;
+}
+
+.control-group .controls textarea {
+    resize: none;
+}
+
+.controls label {
+    margin-top: -5px;
+}

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/client/pom.xml" />
         <option value="$PROJECT_DIR$/authorization-server/pom.xml" />
         <option value="$PROJECT_DIR$/resource2-server/pom.xml" />
+        <option value="$PROJECT_DIR$/client2/pom.xml" />
       </list>
     </option>
   </component>

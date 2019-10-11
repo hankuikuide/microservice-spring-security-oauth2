@@ -2,7 +2,7 @@ server:
   port: 9001
   session:
     cookie:
-      name: UISESSION
+      name: CLIENT_UISESSION
 security:
   basic:
     enabled: false
@@ -10,10 +10,10 @@ security:
     client:
       clientId: sampleClientId
       clientSecret: secret
-      accessTokenUri: http://localhost:9002/auth/oauth/token
-      userAuthorizationUri: http://localhost:9002/auth/oauth/authorize
+      accessTokenUri: http://localhost:9002/oauth/token
+      userAuthorizationUri: http://localhost:9002/oauth/authorize
     resource:
-      userInfoUri: http://localhost:9002/auth/user/me
+      userInfoUri: http://localhost:9002/user/me
 spring:
   thymeleaf:
     cache: false

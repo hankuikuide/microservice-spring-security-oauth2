@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <link rel="icon" type="images/png" sizes="18*18" style="background-color:#000000" th:href="@{/favicon.ico}">
+    <link th:href="@{/css/login-style-yun.css}" rel="stylesheet"/>
+    <title th:text="${title}"></title>
+</head>
+<body>
+<div class="loginbox">
+    <div class="logo" style="background-image:url('http://10.117.150.41:30640/media/image/login-logo.png')"></div>
+    <div class="title" th:text="${title}">登录</div>
+    <div class="inputbox" id="login-form">
+        <div class="inputs">
+            <input id="txtName" type="text" class="username"
+                   th:style="'background-image:url('+@{/image/username.png}+')'" placeholder="请输入用户名">
+            <div class="material-bar"></div>
+            <div class="test"></div>
+        </div>
+
+        <div class="inputs">
+            <input id="txtPwd" type="password" class="password"
+                   th:style="'background-image:url('+@{/image/password.png}+')'" placeholder="请输入密码">
+            <div class="material-bar"></div>
+            <div class="test"></div>
+            <div id="spanError" class="password-error"></div>
+        </div>
+
+        <div class="remUser">
+            <label class="login-remUser">
+                <input type="checkbox" id="isSave">
+                <span>记住用户名</span>
+            </label>
+        </div>
+
+        <div class="loginbtn"><a id="btnLogin" href="javascript:void(0)">登录</a></div>
+
+    </div>
+    <form id="loginInfoForm" action="login" method="post">
+        <input type="hidden" id="loginInfo" name="userPWD">
+    </form>
+
+    <!--登陆版权部分-->
+    <div id="login-copyright" class="login-copyright">
+        版权所有:中公网医疗信息技术有限公司
+    </div>
+    <div id="layer" class="layer">
+    </div>
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/Fm.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        if (!/webkit/.test(navigator.userAgent.toLowerCase())) {
+            $('#downChrome').show();
+        }
+
+        var ts = [[${ts}]];
+        var updatePwd = [[${updatePwd}]];
+        var passValid = [[${passValid}]];
+        var loginCookieName = 'login_token';
+
+        $(document).ready(function () {
+            var error = location.href.indexOf('error')
+            if (error > -1) {
+                var message = [[${errmsg}]]
+                showMsg(message)
+            }
+
+            var temp = Cookie.get(loginCookieName);
+
+            if (temp) {
+                $("#isSave").prop("checked", "check");
+                $("#txtName").val(temp);
+                $("#txtUpdateName").val(temp);
+                $("#txtPwd").focus();
+            } else {
+                $("#txtName").focus();
+            }
+
+            if (updatePwd) {
+                $("#login-form").hide();
+                $("#login-form-change").show();
+            }
+        });
+
+        function showMsg(msg) {
+            $("#spanError").html(msg);
+        }
+
+        function submit() {
+            var name = $("#txtName").val().trim();
+            var pwd = $("#txtPwd").val().trim();
+            var region = $("#selectRegion").val() || '';
+            if (name == "") {
+                showMsg("用户名不能为空");
+                $("#txtName").focus();
+                return;
+            }
+            if (pwd == "") {
+                showMsg("密码不能为空");
+                $("#txtPwd").focus();
+                return;
+            }
+
+            var userPWD = {
+                username: name,
+                password: pwd,
+                ts: ts
+            };
+
+            $("#loginInfo").val(JSON.stringify(userPWD))
+            var isSave = $("#isSave").prop("checked");
+            if (isSave) {
+                Cookie.set(loginCookieName, name, 30);
+            } else {
+                Cookie.set(loginCookieName, "");
+            }
+            $("#loginInfoForm").submit();
+        }
+
+        $("#btnLogin").click(function () {
+            submit();
+        });
+
+        $('#txtName,#txtPwd').keydown(function (e) {
+            if (e.keyCode == 13) {
+                submit();
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

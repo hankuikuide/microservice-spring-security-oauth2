@@ -1,0 +1,22 @@
+server:
+  port: 9000
+  session:
+    cookie:
+      name: CLIENT2_UISESSION
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: sampleClientId2
+      clientSecret: secret
+      accessTokenUri: http://localhost:9002/oauth/token
+      logoutUri: http://localhost:9002/ssoLogout
+      userAuthorizationUri: http://localhost:9002/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:9002/user/me
+spring:
+  thymeleaf:
+    cache: false
+  main:
+    allow-bean-definition-overriding: true

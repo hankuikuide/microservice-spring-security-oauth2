@@ -1,4 +1,21 @@
 server:
   port: 9002
   servlet:
-    context-path: /auth
+    context-path: /
+    session:
+      cookie:
+        name: JSESSIONID_OAUTH2_SSO
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  jackson:
+    #日期格式化
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    serialization:
+      write_dates_as_timestamps: false
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false

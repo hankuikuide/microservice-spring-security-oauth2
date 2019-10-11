@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="authorization-server" />
         <module name="client" />
+        <module name="client2" />
         <module name="resource-server" />
         <module name="resource2-server" />
       </profile>
@@ -15,6 +16,7 @@
     <bytecodeTargetLevel>
       <module name="authorization-server" target="1.8" />
       <module name="client" target="1.8" />
+      <module name="client2" target="1.8" />
       <module name="microservice-spring-security-oauth2" target="1.8" />
       <module name="resource-server" target="1.8" />
       <module name="resource2-server" target="1.8" />

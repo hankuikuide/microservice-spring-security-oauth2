@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 
-@Configuration
+//@Configuration
 public class OAuth2FeignAutoConfiguration {
 
     @Bean
