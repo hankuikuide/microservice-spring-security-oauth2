@@ -29,12 +29,6 @@ public class HelloController {
 
     @GetMapping("/helloResource")
     public String helloResource (){
-//        ResponseEntity<String> restExchange =
-//                restTemplate.exchange(
-//                        "http://localhost:9003/auth/hello",
-//                        HttpMethod.GET,null,String.class);
-//
-//        String result = restExchange.getBody();
 
         String result = resourceService.hello();
         return result;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "resource-service",
-        url = "http://localhost:9003/auth",
+        url = "http://localhost:9003/",
         fallback = ResourceService.ResourceServiceFallback.class )
 public interface ResourceService {
 

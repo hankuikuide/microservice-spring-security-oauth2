@@ -5,11 +5,21 @@ import com.crhms.security.client.security.SsoLogoutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
+import org.springframework.security.oauth2.client.token.AccessTokenProviderChain;
+import org.springframework.security.oauth2.client.token.AccessTokenRequest;
+import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsAccessTokenProvider;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.context.request.RequestContextListener;
+
+import java.util.Arrays;
 
 /**
  * @author ：hkk
@@ -23,20 +33,29 @@ public class CustomConfig {
         return new RequestContextListener();
     }
 
-    //@Value("${aa}")
-    private String logOutUri;
+    @Bean("serviceClientCredentialsResourceDetails")
+    @ConditionalOnMissingBean(name = "serviceClientCredentialsResourceDetails")
+    @ConfigurationProperties("cis-service-security.oauth2.client")
+    public ClientCredentialsResourceDetails details() {
+        ClientCredentialsResourceDetails details = new ClientCredentialsResourceDetails();
+        return details;
+    }
 
-    // @Autowired(required = false)
-    // @Qualifier("serviceOAuth2RestTemplate")
-    // private ServiceOAuth2RestTemplate template;
 
-    // @Bean("cisSsoLogoutfilterRegistrationBean")
-    // public FilterRegistrationBean filterRegistrationBean() {
-    //     SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
-    //     securityContextLogoutHandler.setInvalidateHttpSession(true);
-    //
-    //     SsoLogoutFilter logoutFilter = new SsoLogoutFilter("/", logOutUri, template, securityContextLogoutHandler)
-    //
-    // }
+    @Bean("serviceOAuth2RestTemplate")
+    @ConditionalOnMissingBean(name = "serviceOAuth2RestTemplate")
+    public ServiceOAuth2RestTemplate cisServiceOAuth2RestTemplate(@Qualifier("serviceClientCredentialsResourceDetails") ClientCredentialsResourceDetails details) {
+        AccessTokenRequest atr = new DefaultAccessTokenRequest();
+        final ServiceOAuth2RestTemplate oAuth2RestTemplate = new ServiceOAuth2RestTemplate(details,new DefaultOAuth2ClientContext(atr));
+
+        ClientCredentialsAccessTokenProvider authCodeProvider = new ClientCredentialsAccessTokenProvider();
+
+        AccessTokenProviderChain provider = new AccessTokenProviderChain(
+                Arrays.asList(authCodeProvider));
+
+        oAuth2RestTemplate.setAccessTokenProvider(provider);
+
+        return oAuth2RestTemplate;
+    }
 
 }
