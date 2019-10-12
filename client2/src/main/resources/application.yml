@@ -7,8 +7,6 @@ server:
         name: JSESSIONID_CLIENT2
 
 security:
-  basic:
-    enabled: false
   oauth2:
     client:
       clientId: sampleClientId2

@@ -3,6 +3,7 @@ package com.crhms.security.client2.security;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 
 /**
@@ -13,7 +14,7 @@ public class ZuulAuthHeaderFilter extends ZuulFilter {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
 
-    private ServiceOAuth2RestTemplate restTemplate;
+    private OAuth2RestTemplate oAuth2RestTemplate;
 
     @Override
     public String filterType() {
@@ -30,16 +31,16 @@ public class ZuulAuthHeaderFilter extends ZuulFilter {
         return true;
     }
 
-    public ZuulAuthHeaderFilter(ServiceOAuth2RestTemplate template) {
+    public ZuulAuthHeaderFilter(OAuth2RestTemplate template) {
 
-        this.restTemplate = template;
+        this.oAuth2RestTemplate = template;
     }
 
     @Override
     public Object run() throws ZuulException {
         RequestContext requestContext = RequestContext.getCurrentContext();
 
-        OAuth2AccessToken token = this.restTemplate.getAccessToken();
+        OAuth2AccessToken token = this.oAuth2RestTemplate.getAccessToken();
         requestContext.addZuulRequestHeader(AUTHORIZATION_HEADER,
                 String.format("%s %s",
                         token.getTokenType(), token.getValue()));

@@ -1,6 +1,5 @@
 package com.crhms.security.resourceserver.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -23,7 +22,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .and()
                 .authorizeRequests()
-                //.anyRequest().permitAll();
                 .anyRequest().authenticated();
     }
 
@@ -40,7 +38,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-
         converter.setSigningKey("123");
         return converter;
     }

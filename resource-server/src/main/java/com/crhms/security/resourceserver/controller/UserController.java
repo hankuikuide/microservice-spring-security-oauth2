@@ -12,12 +12,6 @@ public class UserController {
     @Autowired
     private Resource2Service resource2Service;
 
-    @RequestMapping("/user/me")
-    public Principal user(Principal principal) {
-        System.out.println(principal);
-        return principal;
-    }
-
     @RequestMapping("/hello")
     public String hello() {
         System.out.println("This is a message from resouce server1 !");

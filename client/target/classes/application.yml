@@ -6,17 +6,7 @@ server:
       cookie:
         name: JSESSIONID_CLIENT
 
-cis-service-security:
-  oauth2:
-    client:
-      clientId: sampleClientId
-      clientSecret: secret
-      accessTokenUri: http://localhost:9002/oauth/token
-      scope: webclient
-
 security:
-  basic:
-    enabled: false
   oauth2:
     client:
       clientId: sampleClientId

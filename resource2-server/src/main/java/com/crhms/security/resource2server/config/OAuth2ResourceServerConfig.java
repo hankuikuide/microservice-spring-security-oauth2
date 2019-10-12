@@ -22,7 +22,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .and()
                 .authorizeRequests()
-                //.anyRequest().permitAll();
                 .anyRequest().authenticated();
     }
 

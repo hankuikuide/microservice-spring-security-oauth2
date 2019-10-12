@@ -30,7 +30,7 @@ public class CustomConfig {
 
     @Bean("serviceClientCredentialsResourceDetails")
     @ConditionalOnMissingBean(name = "serviceClientCredentialsResourceDetails")
-    @ConfigurationProperties("cis-service-security.oauth2.client")
+    @ConfigurationProperties("security.oauth2.client")
     public ClientCredentialsResourceDetails details() {
         ClientCredentialsResourceDetails details = new ClientCredentialsResourceDetails();
         return details;
