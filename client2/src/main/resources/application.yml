@@ -27,8 +27,13 @@ spring:
 zuul:
   ignoredServices: '*'
   routes:
-    platform-config:
+    resource-service:
       path: /resource/**
       url: http://localhost:9003/
+      stripPrefix: true
+      sensitiveHeaders: Cookie
+    resource2-service:
+      path: /resource2/**
+      url: http://localhost:9004/
       stripPrefix: true
       sensitiveHeaders: Cookie

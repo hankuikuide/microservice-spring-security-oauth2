@@ -4,7 +4,7 @@ server:
     context-path: /
     session:
       cookie:
-        name: JSESSIONID_MR_WEB
+        name: JSESSIONID_CLIENT
 
 cis-service-security:
   oauth2:

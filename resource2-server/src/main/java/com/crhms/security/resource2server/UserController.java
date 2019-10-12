@@ -16,7 +16,7 @@ public class UserController {
 
     @RequestMapping("/hello")
     public String hello() {
-        System.out.println("This is a message from resouce server !");
+        System.out.println("This is a message from resouce-2 server !");
 
         return "This is a message from resouce server2 !";
     }

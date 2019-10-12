@@ -55,6 +55,15 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("read", "write", "foo", "bar","webclient")
                 .autoApprove(true)
                 .accessTokenValiditySeconds(3600)
+                .redirectUris("http://localhost:9000/login")
+                .and()
+                //resource-server
+                .withClient("resourceserver")
+                .secret(passwordEncoder().encode("secret"))
+                .authorizedGrantTypes("implicit", "authorization_code","client_credentials")
+                .scopes("read", "write", "foo", "bar","webclient")
+                .autoApprove(true)
+                .accessTokenValiditySeconds(3600)
                 .redirectUris("http://localhost:9000/login");
     } // @formatter:on
 
