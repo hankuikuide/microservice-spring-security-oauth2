@@ -39,18 +39,18 @@ public class CustomConfig {
 
     @Bean("serviceOAuth2RestTemplate")
     @ConditionalOnMissingBean(name = "serviceOAuth2RestTemplate")
-    public ServiceOAuth2RestTemplate cisServiceOAuth2RestTemplate(@Qualifier("serviceClientCredentialsResourceDetails") ClientCredentialsResourceDetails details) {
-        AccessTokenRequest atr = new DefaultAccessTokenRequest();
-        final ServiceOAuth2RestTemplate oAuth2RestTemplate = new ServiceOAuth2RestTemplate(details,new DefaultOAuth2ClientContext(atr));
+    public ServiceOAuth2RestTemplate serviceOAuth2RestTemplate(@Qualifier("serviceClientCredentialsResourceDetails") ClientCredentialsResourceDetails details) {
+        AccessTokenRequest request = new DefaultAccessTokenRequest();
+        ServiceOAuth2RestTemplate template = new ServiceOAuth2RestTemplate(details,new DefaultOAuth2ClientContext(request));
 
-        ClientCredentialsAccessTokenProvider authCodeProvider = new ClientCredentialsAccessTokenProvider();
+        ClientCredentialsAccessTokenProvider provider = new ClientCredentialsAccessTokenProvider();
 
-        AccessTokenProviderChain provider = new AccessTokenProviderChain(
-                Arrays.asList(authCodeProvider));
+        AccessTokenProviderChain providers = new AccessTokenProviderChain(
+                Arrays.asList(provider));
 
-        oAuth2RestTemplate.setAccessTokenProvider(provider);
+        template.setAccessTokenProvider(providers);
 
-        return oAuth2RestTemplate;
+        return template;
     }
 
 }

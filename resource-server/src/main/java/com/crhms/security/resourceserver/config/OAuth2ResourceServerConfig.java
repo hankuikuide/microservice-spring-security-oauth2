@@ -1,8 +1,6 @@
 package com.crhms.security.resourceserver.config;
 
 
-import com.crhms.security.resourceserver.security.CustomAccessTokenConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,18 +18,13 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @EnableResourceServer
 public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Autowired
-    private CustomAccessTokenConverter customAccessTokenConverter;
-
     @Override
     public void configure(final HttpSecurity http) throws Exception {
-        // @formatter:off
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .and()
                 .authorizeRequests()
                 //.anyRequest().permitAll();
                 .anyRequest().authenticated();
-        // @formatter:on
     }
 
     @Override
@@ -47,7 +40,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setAccessTokenConverter(customAccessTokenConverter);
 
         converter.setSigningKey("123");
         return converter;
