@@ -1,8 +1,11 @@
 server:
   port: 9000
-  session:
-    cookie:
-      name: CLIENT2_UISESSION
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        name: JSESSIONID_CLIENT2
+
 security:
   basic:
     enabled: false
@@ -20,3 +23,12 @@ spring:
     cache: false
   main:
     allow-bean-definition-overriding: true
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    platform-config:
+      path: /resource/**
+      url: http://localhost:9003/
+      stripPrefix: true
+      sensitiveHeaders: Cookie

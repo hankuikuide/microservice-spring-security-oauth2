@@ -51,7 +51,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 //Client2
                 .withClient("sampleClientId2")
                 .secret(passwordEncoder().encode("secret"))
-                .authorizedGrantTypes("implicit", "authorization_code")
+                .authorizedGrantTypes("implicit", "authorization_code","client_credentials")
                 .scopes("read", "write", "foo", "bar","webclient")
                 .autoApprove(true)
                 .accessTokenValiditySeconds(3600)

@@ -15,6 +15,19 @@
 * 使用授权码模式进行认证。
 * 使用OAuth2RestTemplate发送请求给认证服务器和资源服务器，
 * 结合Feign实现loadbalance.
+
+## client2:也是客户端的应用程序
+网上多数的项目客户端都是采用纯js写，或用postman发请求，和实际项目的应用还是有差距的，这里也是采用spring boot的实现。
+主要功能在于：
+* 使用授权码模式进行认证。
+* 使用OAuth2RestTemplate发送请求给认证服务器和资源服务器，
+* 结合Zuul网关实现请求转发给资源服务器.这也是区别于client的地方
+
+##client与client2的主要作用：
+* 演示SSO,只要一个客户端登录成功，另一个应用，也就自动登录成功。
+* 演示SSO,只要一个客户端退出，另一个应用，也就自动退出。
+* 分别用Feign和Zuul网关实现对资源服务器的访问
+
 ## resource-server：是资源服务器，也是微服务
 资源服务器只实现了一个，另一个同时，只是注意jwt的配置即可。
 ## resource2-server：是资源服务器，也是微服务
@@ -26,6 +39,7 @@
 * OAuth2.0
 * JWT
 * Feign
+* Zuul
 * cors
 
 
