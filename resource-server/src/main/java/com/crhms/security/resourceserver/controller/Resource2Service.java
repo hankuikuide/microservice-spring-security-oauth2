@@ -1,4 +1,4 @@
-package com.crhms.security.resourceserver;
+package com.crhms.security.resourceserver.controller;
 
 
 import org.springframework.cloud.openfeign.FeignClient;

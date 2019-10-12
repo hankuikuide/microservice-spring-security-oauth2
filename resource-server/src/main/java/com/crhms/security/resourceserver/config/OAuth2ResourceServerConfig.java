@@ -1,7 +1,7 @@
 package com.crhms.security.resourceserver.config;
 
 
-import com.crhms.security.resourceserver.CustomAccessTokenConverter;
+import com.crhms.security.resourceserver.security.CustomAccessTokenConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

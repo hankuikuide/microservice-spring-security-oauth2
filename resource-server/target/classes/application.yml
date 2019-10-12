@@ -2,3 +2,11 @@ server:
   port: 9003
   servlet:
     context-path: /
+
+security:
+  oauth2:
+    client:
+      clientId: resourceserver
+      clientSecret: secret
+      accessTokenUri: http://localhost:9002/oauth/token
+      userAuthorizationUri: http://localhost:9002/oauth/authorize

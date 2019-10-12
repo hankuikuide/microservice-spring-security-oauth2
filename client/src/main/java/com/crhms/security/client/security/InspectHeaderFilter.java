@@ -1,4 +1,4 @@
-package com.crhms.security.resourceserver;
+package com.crhms.security.client.security;
 
 
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@Component
+//@Component
 public class InspectHeaderFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -15,7 +15,7 @@ public class InspectHeaderFilter implements Filter {
 
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        System.out.println("I AM Resource SERVER: " + httpServletRequest.getHeader("Authorization"));
+        System.out.println("I AM client: " + httpServletRequest.getHeader("Authorization"));
 
         filterChain.doFilter(httpServletRequest, servletResponse);
     }
